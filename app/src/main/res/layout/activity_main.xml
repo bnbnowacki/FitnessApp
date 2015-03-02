@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplikacja Fitness"
+        android:id="@+id/textViewNaglowek"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dodaj ćwiczenie"
+        android:id="@+id/btDodaj"
+        android:layout_below="@id/textViewNaglowek"
+        android:onClick="ClickDodajMain"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Usuń ćwiczenie"
+        android:id="@+id/btUsun"
+        android:layout_below="@id/btDodaj"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista ćwiczeń"
+        android:id="@+id/btLista"
+        android:layout_below="@id/btUsun"
+        android:onClick="ClickListaMain"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rozplanuj trening"
+        android:id="@+id/btTrening"
+        android:layout_below="@id/btLista"/>
+
+</RelativeLayout>

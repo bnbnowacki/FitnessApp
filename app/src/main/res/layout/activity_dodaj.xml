@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.marcin.fitnessapp.DodajActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dodawanie ćwiczenia"
+        android:id="@+id/textViewNaglowek"
+        android:textSize="20sp"
+        android:paddingBottom="30dp"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textNazwa"
+        android:paddingTop="20dp"
+        android:text="Nazwa: "
+        android:layout_below="@id/textViewNaglowek"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editNazwa"
+        android:layout_below="@id/textViewNaglowek"
+        android:layout_toRightOf="@id/textNazwa"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textKalorie"
+        android:paddingTop="20dp"
+        android:text="Ilość Kalorii: "
+        android:paddingBottom="30dp"
+        android:layout_below="@id/textNazwa"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editKalorie"
+        android:layout_below="@id/textNazwa"
+        android:layout_toRightOf="@id/textKalorie"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btDodaj"
+        android:text="Zatwierdź"
+        android:layout_below="@id/textKalorie"
+        android:onClick="ClickZatwierdzDodaj"/>
+
+</RelativeLayout>
