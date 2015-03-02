@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:text="Usuń ćwiczenie"
         android:id="@+id/btUsun"
-        android:layout_below="@id/btDodaj"/>
+        android:layout_below="@id/btDodaj"
+        android:onClick="ClickUsunMain"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
