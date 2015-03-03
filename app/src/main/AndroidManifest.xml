@@ -28,6 +28,10 @@
             android:name=".UsunActivity"
             android:label="@string/title_activity_usun" >
         </activity>
+        <activity
+            android:name=".RozplanujActivity"
+            android:label="@string/title_activity_rozplanuj" >
+        </activity>
     </application>
 
 </manifest>
