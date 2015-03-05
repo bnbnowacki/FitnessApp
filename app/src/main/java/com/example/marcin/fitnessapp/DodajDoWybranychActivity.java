@@ -1,6 +1,7 @@
 package com.example.marcin.fitnessapp;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
@@ -35,9 +36,13 @@ public class DodajDoWybranychActivity extends ActionBarActivity {
                 String where = DbHandler.COLUMN2_NAME_NAZWA+" = ?";
                 String[] whereArgs = {c.getString(1)};
                 Cursor c2 = db.query(DbHandler.TABLE2_NAME, columns, where, whereArgs, null, null, null);
+                c2.moveToFirst();
                 ContentValues values = new ContentValues();
-                values.put(DbHandler.COLUMN2_NAME_ILOSC, c2.getString(1)+1);
+                int podniemiona = Integer.parseInt(c2.getString(1))+1;
+                values.put(DbHandler.COLUMN2_NAME_ILOSC, podniemiona);
                 db.update(DbHandler.TABLE2_NAME, values, where, whereArgs);
+                Intent intent = new Intent(DodajDoWybranychActivity.this, RozplanujActivity.class);
+                startActivity(intent);
             }
         });
     }

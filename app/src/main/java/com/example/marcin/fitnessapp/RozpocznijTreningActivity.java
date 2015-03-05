@@ -1,27 +1,41 @@
 package com.example.marcin.fitnessapp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class RozpocznijTreningActivity extends ActionBarActivity {
+    TextView text1, text2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_rozpocznij_trening);
+        text1=(TextView)findViewById(R.id.textViewTresc);
+        text2=(TextView)findViewById(R.id.textKalorie);
+        int w=0;
+        DbHandler dbHandler = new DbHandler(getApplicationContext());
+        Cursor c = dbHandler.WyswietlWybrane(dbHandler);
+        c.moveToFirst();
+        do{
+            w=w+(Integer.parseInt(c.getString(2))*Integer.parseInt(c.getString(3)));
+            text1.setText(text1.getText()+"Ćwiczenie: "+c.getString(1)+"  Ilość: "+c.getString(3)+"\n");
+        }while (c.moveToNext());
+        text2.setText("Spalono kalorii łącznie: "+w);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_rozpocznij_trening, menu);
         return true;
     }
 
@@ -40,27 +54,8 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void ClickDodajMain(View view) {
-        Intent intent = new Intent(MainActivity.this, DodajActivity.class);
-        startActivity(intent);
-    }
-
-    public void ClickListaMain(View view) {
-        Intent intent = new Intent(MainActivity.this, ListaActivity.class);
-        startActivity(intent);
-    }
-
-    public void ClickUsunMain(View view) {
-        Intent intent = new Intent(MainActivity.this, UsunActivity.class);
-        startActivity(intent);
-    }
-
-    public void ClickRozplanujMain(View view) {
-        DbHandler dbHandler = new DbHandler(getApplicationContext());
-        SQLiteDatabase db = dbHandler.getWritableDatabase();
-        db.delete(DbHandler.TABLE2_NAME, null, null);
-        dbHandler.WypelnijTabeleWybrane(dbHandler);
-        Intent intent = new Intent(MainActivity.this, RozplanujActivity.class);
+    public void ClickZakonczTrening(View view) {
+        Intent intent = new Intent(RozpocznijTreningActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

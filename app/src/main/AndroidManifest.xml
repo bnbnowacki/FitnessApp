@@ -36,6 +36,10 @@
             android:name=".DodajDoWybranychActivity"
             android:label="@string/title_activity_dodaj_do_wybranych" >
         </activity>
+        <activity
+            android:name=".RozpocznijTreningActivity"
+            android:label="@string/title_activity_rozpocznij_trening" >
+        </activity>
     </application>
 
 </manifest>

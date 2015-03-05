@@ -8,4 +8,5 @@
     <string name="title_activity_usun">UsunActivity</string>
     <string name="title_activity_rozplanuj">RozplanujActivity</string>
     <string name="title_activity_dodaj_do_wybranych">DodajDoWybranychActivity</string>
+    <string name="title_activity_rozpocznij_trening">RozpocznijTreningActivity</string>
 </resources>

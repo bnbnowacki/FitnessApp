@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewNaglowek"
-        android:text="Wybierz Ćwiczenie"
+        android:text="Wybierz Ćwiczenia"
         android:textSize="30sp"
         android:layout_centerHorizontal="true"/>
 
@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/btRozpocznij"
         android:text="Rozpocznij trening"
-        android:layout_below="@id/textViewNaglowek"/>
+        android:layout_below="@id/textViewNaglowek"
+        android:onClick="ClickRozpocznijRozplanuj"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

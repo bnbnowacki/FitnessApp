@@ -20,7 +20,6 @@ public class RozplanujActivity extends ActionBarActivity {
         setContentView(R.layout.activity_rozplanuj);
         listView=(ListView)findViewById(R.id.listView);
         DbHandler dbHandler = new DbHandler(getApplicationContext());
-        dbHandler.WypelnijTabeleWybrane(dbHandler);
         Cursor cursor = dbHandler.WyswietlWybrane(dbHandler);
         String kolumny[] = {DbHandler.COLUMN2_NAME_NAZWA, DbHandler.COLUMN2_NAME_ILOSC};
         int widoki[]={R.id.textViewNazwa, R.id.textViewIlosc};
@@ -53,6 +52,11 @@ public class RozplanujActivity extends ActionBarActivity {
 
     public void ClickDodajRozplanuj(View view) {
         Intent intent = new Intent(RozplanujActivity.this, DodajDoWybranychActivity.class);
+        startActivity(intent);
+    }
+
+    public void ClickRozpocznijRozplanuj(View view) {
+        Intent intent = new Intent(RozplanujActivity.this, RozpocznijTreningActivity.class);
         startActivity(intent);
     }
 }
