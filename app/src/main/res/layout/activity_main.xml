@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Rozplanuj trening"
         android:id="@+id/btTrening"
-        android:layout_below="@id/btLista"/>
+        android:layout_below="@id/btLista"
+        android:onClick="ClickRozplanujMain"/>
 
 </RelativeLayout>

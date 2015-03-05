@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textColor="#000000"
+        android:text="Czy na pewno usunąć to ćwiczenie?"
+        android:textAppearance="?android:textAppearanceMedium"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btCancel"
+        android:text="Nie"
+        android:layout_below="@id/textView"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btOk"
+        android:text="Tak"
+        android:layout_below="@id/textView"
+        android:layout_toRightOf="@id/btCancel"/>
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.marcin.fitnessapp;
 
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -23,7 +25,7 @@ public class UsunActivity extends ActionBarActivity {
         setContentView(R.layout.activity_usun);
         ListView lista1 = (ListView)findViewById(R.id.ListView);
         final DbHandler dbHelp=new DbHandler(getApplicationContext());
-        String kolumny[]= {DbHandler.COLUMN_NAME_NAZWA, DbHandler.COLUMN_NAME_KALORIE};
+        String kolumny[]= {DbHandler.COLUMN1_NAME_NAZWA, DbHandler.COLUMN1_NAME_KALORIE};
         int[] widoki={R.id.textViewNazwa, R.id.textViewKalorie};
         Cursor c = dbHelp.WyswietlWszystkie(dbHelp);
         SimpleCursorAdapter adapter1 = new SimpleCursorAdapter(getApplicationContext(), R.layout.list_item, c, kolumny, widoki, 0);
@@ -32,13 +34,18 @@ public class UsunActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView listView, View view, int position, long id){
                 Cursor cursor =(Cursor)listView.getItemAtPosition(position);
+
                 String nazwa = cursor.getString(1);
                 Toast.makeText(getApplicationContext(), "Usunięto: "+nazwa, Toast.LENGTH_LONG).show();
                 SQLiteDatabase db = dbHelp.getWritableDatabase();
-                String where = DbHandler.COLUMN_NAME_NAZWA+" = ?";
+                String where = DbHandler.COLUMN1_NAME_NAZWA+" = ?";
                 String[] whereArgs={cursor.getString(1)};
-                db.delete(DbHandler.TABLE_NAME, where, whereArgs);
+                db.delete(DbHandler.TABLE1_NAME, where, whereArgs);
                 finish();
+                //FragmentManager manager = getFragmentManager();
+                //MyDialog dialog = new MyDialog();
+                //dialog.show(manager, "dialog");
+
             }
         });
 

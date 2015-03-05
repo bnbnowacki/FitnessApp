@@ -32,6 +32,10 @@
             android:name=".RozplanujActivity"
             android:label="@string/title_activity_rozplanuj" >
         </activity>
+        <activity
+            android:name=".DodajDoWybranychActivity"
+            android:label="@string/title_activity_dodaj_do_wybranych" >
+        </activity>
     </application>
 
 </manifest>

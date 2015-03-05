@@ -1,6 +1,7 @@
 package com.example.marcin.fitnessapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -51,6 +52,14 @@ public class MainActivity extends ActionBarActivity {
 
     public void ClickUsunMain(View view) {
         Intent intent = new Intent(MainActivity.this, UsunActivity.class);
+        startActivity(intent);
+    }
+
+    public void ClickRozplanujMain(View view) {
+        DbHandler dbHandler = new DbHandler(getApplicationContext());
+        SQLiteDatabase db = dbHandler.getWritableDatabase();
+        db.delete(DbHandler.TABLE2_NAME, null, null);
+        Intent intent = new Intent(MainActivity.this, RozplanujActivity.class);
         startActivity(intent);
     }
 }

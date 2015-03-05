@@ -14,16 +14,24 @@
         android:textSize="30sp"
         android:layout_centerHorizontal="true"/>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_below="@id/btRozpocznij"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btRozpocznij"
         android:text="Rozpocznij trening"
         android:layout_below="@id/textViewNaglowek"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btDodaj"
+        android:text="Dodaj ćwiczenie"
+        android:layout_below="@id/btRozpocznij"
+        android:onClick="ClickDodajRozplanuj"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@id/btDodaj"/>
 
 </RelativeLayout>

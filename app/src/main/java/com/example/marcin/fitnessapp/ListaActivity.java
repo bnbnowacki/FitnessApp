@@ -17,7 +17,7 @@ public class ListaActivity extends ActionBarActivity {
         setContentView(R.layout.activity_lista);
         ListView lista=(ListView)findViewById(R.id.listView);
         DbHandler dbHandler=new DbHandler(getApplicationContext());
-        String kolumny[]= {DbHandler.COLUMN_NAME_NAZWA, DbHandler.COLUMN_NAME_KALORIE};
+        String kolumny[]= {DbHandler.COLUMN1_NAME_NAZWA, DbHandler.COLUMN1_NAME_KALORIE};
         int[] widoki={R.id.textViewNazwa, R.id.textViewKalorie};
         Cursor c = dbHandler.WyswietlWszystkie(dbHandler);
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.list_item, c, kolumny, widoki, 0);

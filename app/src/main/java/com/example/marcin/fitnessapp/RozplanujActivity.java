@@ -1,17 +1,31 @@
 package com.example.marcin.fitnessapp;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 
 public class RozplanujActivity extends ActionBarActivity {
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rozplanuj);
+        listView=(ListView)findViewById(R.id.listView);
+        DbHandler dbHandler = new DbHandler(getApplicationContext());
+        dbHandler.WypelnijTabeleWybrane(dbHandler);
+        Cursor cursor = dbHandler.WyswietlWybrane(dbHandler);
+        String kolumny[] = {DbHandler.COLUMN2_NAME_NAZWA, DbHandler.COLUMN2_NAME_ILOSC};
+        int widoki[]={R.id.textViewNazwa, R.id.textViewIlosc};
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.list_item2, cursor, kolumny, widoki, 0);
+        listView.setAdapter(adapter);
     }
 
 
@@ -35,5 +49,10 @@ public class RozplanujActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void ClickDodajRozplanuj(View view) {
+        Intent intent = new Intent(RozplanujActivity.this, DodajDoWybranychActivity.class);
+        startActivity(intent);
     }
 }
